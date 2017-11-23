@@ -6,7 +6,7 @@
   </ion-header>
  <ion-content>
   <ion-list>
-    <ion-item text-wrap menuClose>
+    <ion-item text-wrap menuClose (click)="openPage('login')">
       <ion-icon name="pulse" item-left large></ion-icon>
       <h2>Dashboard</h2>
       <p>View transaction history and filter transactions</p>
@@ -16,7 +16,7 @@
       <h2>Add Transaction</h2>
       <p>Add a new transaction</p>
     </ion-item>
-    <ion-item text-wrap menuClose>
+    <ion-item text-wrap menuClose (click)="openPage('login')">
       <ion-icon name="log-in" item-left large></ion-icon>
       <h2>Login</h2>
       <p>Login to your dashboard</p>
