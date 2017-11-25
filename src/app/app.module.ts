@@ -7,6 +7,7 @@ import { HomePage } from '../pages/home/home';
 import { TransactionPage } from '../pages/transaction/transaction';
 import { MenuPage } from '../pages/menu/menu';
 import { LoginPage } from '../pages/login/login';
+import { DashboardPage } from '../pages/dashboard/dashboard';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 
@@ -16,7 +17,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     MenuPage,
     LoginPage,
-    TransactionPage
+    TransactionPage,
+    DashboardPage
 
   ],
   imports: [
@@ -29,7 +31,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     MenuPage,
     LoginPage,
-    TransactionPage
+    TransactionPage,
+    DashboardPage 
 
   ],
   providers: [
