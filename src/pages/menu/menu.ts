@@ -2,6 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { HomePage } from '../home/home';
 import { LoginPage } from '../login/login';
+import { TransactionPage } from '../transaction/transaction';
 
 @Component({
   selector: 'page-menu',
@@ -13,7 +14,7 @@ export class MenuPage {
  @ViewChild('content') childNavCtrl: NavController;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-   
+
   }
 
   ionViewDidLoad() {
@@ -23,6 +24,10 @@ export class MenuPage {
   openPage(pageName: string){
     if(pageName == 'login') {
     this.navCtrl.push(LoginPage);
+    }
+
+    if(pageName == 'transaction'){
+      this.navCtrl.push(TransactionPage);
     }
   }
 
