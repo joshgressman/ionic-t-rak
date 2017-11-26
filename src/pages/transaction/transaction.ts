@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams } from 'ionic-angular';
-
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'page-transaction',
@@ -9,11 +9,15 @@ import {NavController, NavParams } from 'ionic-angular';
 export class TransactionPage {
    itemCategory: any = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.itemCategory = ["Office Supplies", "Vehicle", "Gas", "Marketing"];
+  
+  }
+
+  onSubmit(form: NgForm){
+    console.log(form.value);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad TransactionPage');
+    this.itemCategory = ["Office Supplies", "Vehicle", "Gas", "Marketing"];
   }
 
 }

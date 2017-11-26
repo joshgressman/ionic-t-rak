@@ -9,33 +9,33 @@
 
 
 <ion-content padding>
- <form>
+ <form #f="ngForm" (ngSubmit)="onSubmit(f)">
   <ion-list>
     <ion-item>
      <ion-label>Vendor:</ion-label>
-     <ion-input type="text" name="purchasedFrom" required></ion-input>
+     <ion-input type="text" name="vendor" ngModel required></ion-input>
     </ion-item>
     <ion-item>
         <ion-label>Purchased Date:</ion-label>
-        <ion-input type="date" name="purchasedDate" required></ion-input>
+        <ion-input type="date" name="purchasedDate" ngModel required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Category:</ion-label>
-      <ion-select>
+      <ion-select name="category" ngModel>
         <ion-option *ngFor="let cat of itemCategory" value="{{cat}}">{{cat}}</ion-option>
       </ion-select>
     </ion-item>
     <ion-item>
       <ion-label>Item:</ion-label>
-      <ion-input type="text" name="item" required></ion-input>
+      <ion-input type="text" name="item" ngModel required></ion-input>
      </ion-item>
      <ion-item>
       <ion-label>Description:</ion-label>
-      <ion-input type="text" name="description" required></ion-input>
+      <ion-input type="text" name="description" ngModel required></ion-input>
      </ion-item>
      <ion-item>
       <ion-label>Cost $:</ion-label>
-      <ion-input type="number" name="cost" required></ion-input>
+      <ion-input type="number" name="cost" ngModel required></ion-input>
      </ion-item>
   </ion-list>
   <ion-grid>
