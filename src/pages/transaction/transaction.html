@@ -1,18 +1,60 @@
-<!--
-  Generated template for the TransactionPage page.
 
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>transaction</ion-title>
+    <ion-title>Add Transaction</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
+ <form>
+  <ion-list>
+    <ion-item>
+     <ion-label>Vendor:</ion-label>
+     <ion-input type="text" name="purchasedFrom" required></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-label>Purchased Date:</ion-label>
+        <ion-input type="date" name="purchasedDate" required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Category:</ion-label>
+      <ion-select>
+        <ion-option *ngFor="let cat of itemCategory" value="{{cat}}">{{cat}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label>Item:</ion-label>
+      <ion-input type="text" name="item" required></ion-input>
+     </ion-item>
+     <ion-item>
+      <ion-label>Description:</ion-label>
+      <ion-input type="text" name="description" required></ion-input>
+     </ion-item>
+     <ion-item>
+      <ion-label>Cost $:</ion-label>
+      <ion-input type="number" name="cost" required></ion-input>
+     </ion-item>
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <ion-col text-center>
+        <h5>Take a photo of receipt / invoice.</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <button ion-button block outline type="button" icon-left (click)="onTakePhoto()"><ion-icon name="camera"></ion-icon>Receipt Image</button>
+      </ion-col>
+    </ion-row>
+     <ion-row>
+       <ion-col>
+         <button ion-button color="secondary" block type="submit">Add Transaction</button>
+       </ion-col>
+     </ion-row>
+  </ion-grid>
 
+ </form>
 </ion-content>

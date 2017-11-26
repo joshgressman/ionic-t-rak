@@ -1,21 +1,15 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the TransactionPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
-@IonicPage()
 @Component({
   selector: 'page-transaction',
   templateUrl: 'transaction.html',
 })
 export class TransactionPage {
-
+   itemCategory: any = [];
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.itemCategory = ["Office Supplies", "Vehicle", "Gas", "Marketing"];
   }
 
   ionViewDidLoad() {
