@@ -14,8 +14,27 @@ export class TransactionsService {
       const trans = new Transaction(vendor, purchaseDate, category, item, description, cost, imagePath);
       this.transactions.push(trans);
       console.log(this.transactions);
+      this.storage.set('transactions', this.transactions)
+      .then(
+        data => {
+          console.log("transaction saved to storage", this.storage);
+        }
+      )
+      .catch(
+        err => {
+          console.log(err);
+        }
+      )
+    
   }
 
+   getTransactions(){
+  // Or to get a key/value pair
+  this.storage.get('transactions').then((val) => {
+    console.log('here are the transactions', val);
+  });
+}
+   
 
 
 }
