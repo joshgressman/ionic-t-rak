@@ -2,7 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
-
+import { IonicStorageModule } from '@ionic/storage';
 import { HomePage } from '../pages/home/home';
 import { TransactionPage } from '../pages/transaction/transaction';
 import { MenuPage } from '../pages/menu/menu';
@@ -24,7 +24,8 @@ import { TransactionsService } from '../services/transactions';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
