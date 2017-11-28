@@ -10,6 +10,8 @@ export class TransactionsService {
 
   constructor(private storage: Storage){}
 
+  //The local storage is being overwritten, need to initialize then resave the array
+
   addTransaction(vendor: string, purchaseDate: Date, category: string, item: string, description: string, cost: number, imagePath: string){
       const trans = new Transaction(vendor, purchaseDate, category, item, description, cost, imagePath);
       this.transactions.push(trans);
