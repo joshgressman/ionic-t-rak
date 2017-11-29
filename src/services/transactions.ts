@@ -30,12 +30,25 @@ export class TransactionsService {
     
   }
 
-   getTransactions(){
-  // Or to get a key/value pair
-  this.storage.get('transactions').then((val) => {
-    console.log('here are the transactions', val);
-  });
-}
+  fetchTransactions(){
+    return this.storage.get('transactions')
+    .then(
+      (transactions: Transaction[]) => {
+        this.transactions = transactions != null ? transactions : [];
+        return this.transactions.slice()
+      }
+    )
+    .catch(
+      err => {
+        console.log(err);
+      }
+    )
+  }
+
+  loadTransactions(){
+    console.log("from storage", this.transactions);
+    return this.transactions.slice();
+    }
    
 
 

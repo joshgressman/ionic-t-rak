@@ -13,8 +13,7 @@ export class DashboardPage {
   }
 
   ionViewDidLoad() {
-   this.transactions = this.transactionsService.getTransactions();
-   console.log(this.transactions);
+   this.transactions = this.transactionsService.loadTransactions();
   }
 
 }
