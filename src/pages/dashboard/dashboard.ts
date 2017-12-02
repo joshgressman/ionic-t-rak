@@ -9,9 +9,10 @@ import { TransactionsService } from '../../services/transactions';
 export class DashboardPage {
   transactions: any = []
   total: number;
-
+  displayYear: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService) {
    this.total = 0;
+   this.displayYear = new Date().getFullYear();
   }
 
   ionViewDidLoad() {

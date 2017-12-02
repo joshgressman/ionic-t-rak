@@ -9,5 +9,27 @@
 
 
 <ion-content padding>
- <h2>Test {{total}}</h2>
+  <ion-card padding>
+    <ion-card-title text-center><h1>{{displayYear}} Total Transactions</h1></ion-card-title>
+    <ion-card-content text-center> <h1 id="total">$ {{total}} </h1> </ion-card-content>
+  </ion-card>
+  <ion-grid>
+   <ion-row>
+    <ion-col> 
+      <button ion-button block outline>View All</button>
+    </ion-col>
+    <ion-col> 
+        <button ion-button block outline>Filter Category</button>
+      </ion-col>
+   </ion-row>
+   <ion-row>
+      <ion-col> 
+        <button ion-button block outline>Filter Year</button>
+      </ion-col>
+      <ion-col> 
+          <button ion-button block outline>Add Category</button>
+        </ion-col>
+     </ion-row>
+  </ion-grid>
+  <button ion-button  block color="secondary">Add Transaction</button>
 </ion-content>
