@@ -6,6 +6,7 @@ export class Transaction {
         public item: string,
         public description: string,
         public cost: number,
-        public imagePath: string
+        public imagePath: string,
+        public year: number
     ){}
 }

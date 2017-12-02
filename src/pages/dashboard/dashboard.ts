@@ -20,8 +20,7 @@ export class DashboardPage {
 
    for(let i = 0; i < this.transactions.length; i++){
      this.total += this.transactions[i].cost;
-     console.log("hi", this.total);
-   }
+   };
   }
 
 }

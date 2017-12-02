@@ -20,6 +20,12 @@
         <ion-input type="date" name="purchasedDate" ngModel required></ion-input>
     </ion-item>
     <ion-item>
+      <ion-label>Tax Year:</ion-label>
+      <ion-select name="year" ngModel>
+        <ion-option *ngFor="let year of yearSelection" value="{{year}}">{{year}}</ion-option>
+      </ion-select>
+  </ion-item>
+    <ion-item>
       <ion-label>Category:</ion-label>
       <ion-select name="category" ngModel>
         <ion-option *ngFor="let cat of itemCategory" value="{{cat}}">{{cat}}</ion-option>
