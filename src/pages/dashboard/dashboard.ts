@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { TransactionsService } from '../../services/transactions';
+import { TransactionPage } from '../transaction/transaction';
 
 @Component({
   selector: 'page-dashboard',
@@ -22,6 +23,10 @@ export class DashboardPage {
    for(let i = 0; i < this.transactions.length; i++){
      this.total += this.transactions[i].cost;
    };
+  }
+
+  toTransactions(){
+    this.navCtrl.push(TransactionPage);
   }
 
 }
