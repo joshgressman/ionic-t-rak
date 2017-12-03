@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
+import { Camera } from '@ionic-native/camera';
 import { HomePage } from '../pages/home/home';
 import { TransactionPage } from '../pages/transaction/transaction';
 import { MenuPage } from '../pages/menu/menu';
@@ -40,6 +41,7 @@ import { TransactionsService } from '../services/transactions';
   providers: [
     StatusBar,
     SplashScreen,
+    Camera,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TransactionsService
   ]
