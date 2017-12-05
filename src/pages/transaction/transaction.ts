@@ -13,7 +13,7 @@ export class TransactionPage {
    itemCategory: any = [];
    year: number;
    yearSelection: number[] = [];
-
+   imgUrl = '';
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService, private camera: Camera) {
     
     //set current year
@@ -30,10 +30,10 @@ export class TransactionPage {
 
   
   onSubmit(form: NgForm){
-    let imgUrl = '';
-    let theCost = Number(form.value.cost);
+    
+    let theCost = parseInt(form.value.cost);
     let theYear = parseInt(form.value.year)
-    this.transactionsService.addTransaction(form.value.vendor, form.value.purchasedDate, form.value.category, form.value.item, form.value.description, theCost, imgUrl, theYear);
+    this.transactionsService.addTransaction(form.value.vendor, form.value.purchasedDate, form.value.category, form.value.item, form.value.description, theCost, this.imgUrl, theYear);
     form.reset();
   }
 
@@ -51,6 +51,7 @@ export class TransactionPage {
    .then(
      (imageData) => {
        console.log(imageData);
+       this.imgUrl = imageData;
      }
    )
 

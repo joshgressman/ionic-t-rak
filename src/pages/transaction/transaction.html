@@ -17,7 +17,8 @@
     </ion-item>
     <ion-item>
         <ion-label>Purchased Date:</ion-label>
-        <ion-input type="date" name="purchasedDate" ngModel required></ion-input>
+        <!-- <ion-input type="Date" name="purchasedDate" ngModel required></ion-input> -->
+        <ion-datetime displayFormat="MM/DD/YYYY" name="purchasedDate"ngModel></ion-datetime>
     </ion-item>
     <ion-item>
       <ion-label>Tax Year:</ion-label>
@@ -58,6 +59,11 @@
      <ion-row>
        <ion-col>
          <button ion-button color="secondary" block type="submit">Add Transaction</button>
+       </ion-col>
+     </ion-row>
+     <ion-row>
+       <ion-col>
+         <img [src]="imageUrl" />
        </ion-col>
      </ion-row>
   </ion-grid>
