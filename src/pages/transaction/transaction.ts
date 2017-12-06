@@ -63,4 +63,7 @@ export class TransactionPage {
    
   }
 
+  //Add File for image url
+
+  // END OF CLASS
 }
