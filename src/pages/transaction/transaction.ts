@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Camera } from '@ionic-native/camera';
 import { NavController, NavParams } from 'ionic-angular';
+import { File } from '@ionic-native/file';
 import { NgForm } from '@angular/forms';
 import { TransactionsService } from '../../services/transactions';
 
@@ -14,7 +15,7 @@ export class TransactionPage {
    year: number;
    yearSelection: number[] = [];
    imgUrl = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService, private camera: Camera) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService, private camera: Camera, private file: File) {
     
     //set current year
     let data = new Date().getFullYear();
@@ -31,7 +32,7 @@ export class TransactionPage {
   
   onSubmit(form: NgForm){
     
-    let theCost = parseInt(form.value.cost).toFixed(2);
+    let theCost = parseInt(form.value.cost.toFixed(2));
     let theYear = parseInt(form.value.year)
     this.transactionsService.addTransaction(form.value.vendor, form.value.purchasedDate, form.value.category, form.value.item, form.value.description, theCost, this.imgUrl, theYear);
     form.reset();
@@ -49,10 +50,29 @@ export class TransactionPage {
     })
 
    .then(
-     (imageData) => {
-       console.log(imageData);
-       this.imgUrl = imageData;
-     }
+      imageData => {
+        //save image data to be stored in native file
+        const currentName = imageData.raplace(/^.*[\\\/]/,'');
+        const path = imageData.replace(/[^\/]*$/, '');
+        const newFileName = new Date().getUTCMilliseconds() + '.jpg';
+        this.file.moveFile(path, currentName, this.file.dataDirectory, newFileName)
+        .then(
+          data => {
+            this.imgUrl = data.nativeURL;
+            this.camera.cleanup();
+            this.file.removeFile(path, currentName);
+          }
+        )
+
+        .catch(
+          err => {
+            this.imgUrl = '';
+            
+          }
+        )
+
+        this.imgUrl = imageData;
+      }
    )
 
    .catch(

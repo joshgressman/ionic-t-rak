@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from '@ionic/storage';
 import { Camera } from '@ionic-native/camera';
+import { File } from '@ionic-native/file';
 import { HomePage } from '../pages/home/home';
 import { TransactionPage } from '../pages/transaction/transaction';
 import { MenuPage } from '../pages/menu/menu';
@@ -45,6 +46,7 @@ import { TransactionsService } from '../services/transactions';
     StatusBar,
     SplashScreen,
     Camera,
+    File,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     TransactionsService
   ]
