@@ -18,11 +18,13 @@ export class DashboardPage {
 
   ionViewDidLoad() {
    this.transactions = this.transactionsService.loadTransactions();
-   console.log("trans", this.transactions[0].cost);
-
+   console.log(this.transactions);
+    
+   if(this.transactions != []){
    for(let i = 0; i < this.transactions.length; i++){
      this.total += this.transactions[i].cost;
-   };
+    };
+   }
   }
 
   toTransactions(){
