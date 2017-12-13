@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { TransactionsService } from '../../services/transactions';
 import { TransactionPage } from '../transaction/transaction';
+import { ViewTransactionPage } from '../view-transaction/view-transaction';
 
 @Component({
   selector: 'page-dashboard',
@@ -30,5 +31,8 @@ export class DashboardPage {
   toTransactions(){
     this.navCtrl.push(TransactionPage);
   }
+
+
+  //show list of trans or filter on select
 
 }

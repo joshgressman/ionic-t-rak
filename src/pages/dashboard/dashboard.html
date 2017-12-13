@@ -33,4 +33,8 @@
      </ion-row>
   </ion-grid>
   <button ion-button  block color="secondary" (click)="toTransactions()">Add Transaction</button>
+  <ion-card *ngFor="let trans of transactions, let i = index" (click)="onOpenTrans(trans)">
+   <ion-card-header>{{trans.vendor}}</ion-card-header>
+   <ion-card-content>{{trans.cost}}</ion-card-content>
+  </ion-card>
 </ion-content>
