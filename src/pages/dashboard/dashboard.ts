@@ -4,12 +4,14 @@ import { TransactionsService } from '../../services/transactions';
 import { TransactionPage } from '../transaction/transaction';
 import { ViewTransactionPage } from '../view-transaction/view-transaction';
 
+import { Transaction } from '../../models/transaction';
+
 @Component({
   selector: 'page-dashboard',
   templateUrl: 'dashboard.html',
 })
 export class DashboardPage {
-  transactions: any = []
+  transactions: Transaction[] = [];
   total: number;
   displayYear: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService) {
@@ -30,6 +32,11 @@ export class DashboardPage {
 
   toTransactions(){
     this.navCtrl.push(TransactionPage);
+  }
+
+  viewAllTransactions(){
+    this.transactions = this.transactionsService.loadTransactions();
+    console.log("Select all",this.transactions);
   }
 
 
