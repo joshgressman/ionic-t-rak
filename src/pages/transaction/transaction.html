@@ -61,9 +61,9 @@
          <button ion-button color="secondary" block type="submit" [disabled]="!f.valid || imgUrl == ''">Add Transaction</button>
        </ion-col>
      </ion-row>
-     <ion-row>
+     <ion-row *ngIf="imgUrl != ''">
        <ion-col>
-         <img [src]="imageUrl" />
+         <img [src]="imgUrl"/>
        </ion-col>
      </ion-row>
   </ion-grid>
