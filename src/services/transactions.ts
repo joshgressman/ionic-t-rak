@@ -15,7 +15,7 @@ export class TransactionsService {
   addTransaction(vendor: string, purchaseDate: Date, category: string, item: string, description: string, cost: number, imagePath: string, year: number){
       const trans = new Transaction(vendor, purchaseDate, category, item, description, cost, imagePath, year);
       this.transactions.push(trans);
-      console.log(this.transactions);
+      console.log("Saving transaction",this.transactions);
       this.storage.set('transactions', this.transactions)
       .then(
         data => {

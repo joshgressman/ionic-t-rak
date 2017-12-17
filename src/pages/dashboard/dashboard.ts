@@ -12,21 +12,24 @@ import { Transaction } from '../../models/transaction';
 })
 export class DashboardPage {
   transactions: Transaction[] = [];
-  total: number;
+  total = 0;
   displayYear: number;
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService) {
-   this.total = 0;
+   
    this.displayYear = new Date().getFullYear();
   }
 
   ionViewDidLoad() {
    this.transactions = this.transactionsService.loadTransactions();
-   console.log(this.transactions);
+   console.log("loaded transactions",this.transactions);
     
    if(this.transactions != []){
    for(let i = 0; i < this.transactions.length; i++){
-     this.total += this.transactions[i].cost;
+     var toNum = parseInt(this.transactions[i].cost);
+     this.total = this.total + toNum;
+    console.log("cost",this.total)
     };
+
    }
   }
 
