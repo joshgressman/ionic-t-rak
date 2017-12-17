@@ -32,7 +32,7 @@ export class TransactionPage {
   
   onSubmit(form: NgForm){
     
-    let theCost = parseInt(form.value.cost.toFixed(2));
+    let theCost = parseInt(form.value.cost).toFixed(2);
     let theYear = parseInt(form.value.year)
     this.transactionsService.addTransaction(form.value.vendor, form.value.purchasedDate, form.value.category, form.value.item, form.value.description, theCost, this.imgUrl, theYear);
     form.reset();
