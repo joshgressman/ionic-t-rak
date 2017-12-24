@@ -25,7 +25,7 @@ export class DashboardPage {
     
    if(this.transactions != []){
    for(let i = 0; i < this.transactions.length; i++){
-     var toNum = parseInt(this.transactions[i].cost);
+     var toNum = this.transactions[i].cost;
      this.total = this.total + toNum;
     console.log("cost",this.total)
     };
