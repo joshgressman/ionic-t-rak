@@ -32,9 +32,9 @@ export class TransactionPage {
   
   onSubmit(form: NgForm){
     
-    // let theCost = parseInt(form.value.cost).toFixed(2);
+
     let theYear = parseInt(form.value.year)
-    console.log("formtype", form.value.cost);
+
     this.transactionsService.addTransaction(form.value.vendor, form.value.purchasedDate, form.value.category, form.value.item, form.value.description, parseFloat(form.value.cost), this.imgUrl, theYear);
     form.reset();
   }
@@ -73,7 +73,7 @@ export class TransactionPage {
           }
         )
 
-        this.imgUrl = imageData;
+        // this.imgUrl = imageData;
       }
    )
 

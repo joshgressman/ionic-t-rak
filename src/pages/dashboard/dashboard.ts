@@ -27,7 +27,7 @@ export class DashboardPage {
    for(let i = 0; i < this.transactions.length; i++){
      var toNum = this.transactions[i].cost;
      this.total = this.total + toNum;
-    console.log("cost",this.total)
+     console.log("image path", this.transactions[i].imagePath);
     };
 
    }
