@@ -44,6 +44,8 @@ export class TransactionPage {
   }
 
   //Will take receipt image. Will add after local storage to test without xcode
+
+  //File is saving as an empty string?? 
   onTakePhoto(){
     this.camera.getPicture({
       encodingType: this.camera.EncodingType.JPEG,
@@ -73,7 +75,7 @@ export class TransactionPage {
           }
         )
 
-        // this.imgUrl = imageData;
+        this.imgUrl = imageData;
       }
    )
 
