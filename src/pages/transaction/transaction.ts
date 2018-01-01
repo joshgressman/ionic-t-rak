@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Camera } from '@ionic-native/camera';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
 import { NgForm } from '@angular/forms';
 import { TransactionsService } from '../../services/transactions';
@@ -15,7 +15,7 @@ export class TransactionPage {
    year: number;
    yearSelection: number[] = [];
    imgUrl = '';
-  constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService, private camera: Camera, private file: File) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService, private camera: Camera, private file: File, public toast: ToastController) {
     
     //set current year
     let data = new Date().getFullYear();
@@ -71,7 +71,12 @@ export class TransactionPage {
         .catch(
           err => {
             this.imgUrl = '';
-            
+            const toast = this.toast.create({
+              message: "Image Error could not save" + err,
+              duration: 5000
+            });
+            toast.present();
+            this.camera.cleanup();
           }
         )
 
@@ -81,7 +86,11 @@ export class TransactionPage {
 
    .catch(
      (err) => {
-       console.log(err)
+       const toastTake = this.toast.create({
+         message: "Could not take image" + err,
+         duration: 5000
+       });
+       toastTake.present();
      }
    )
    
