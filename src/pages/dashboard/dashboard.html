@@ -36,6 +36,7 @@
   <ion-card *ngFor="let trans of transactions, let i = index" (click)="onOpenTrans(trans)">
    <ion-card-header>{{trans.vendor}}</ion-card-header>
    <ion-card-content>{{trans.cost}}</ion-card-content>
-   <ion-card-content>{{trans.imagePath}}</ion-card-content>
+   <img [src]="trans.imagePath"/>
+   <p>Image {{trans.imagePath}}</p>
   </ion-card>
 </ion-content>

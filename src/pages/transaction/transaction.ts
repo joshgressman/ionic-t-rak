@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Camera } from '@ionic-native/camera';
+import { normalizeURL } from 'ionic-angular';
 import { NavController, NavParams, ToastController } from 'ionic-angular';
 import { File } from '@ionic-native/file';
 import { NgForm } from '@angular/forms';
@@ -15,6 +16,7 @@ export class TransactionPage {
    year: number;
    yearSelection: number[] = [];
    imgUrl = '';
+   viewImage = '';
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService, private camera: Camera, private file: File, public toast: ToastController) {
     
     //set current year
@@ -55,13 +57,14 @@ export class TransactionPage {
    .then(
       imageData => {
         //save image data to be stored in native file
+        this.viewImage = normalizeURL(imageData);
         const currentName = imageData.replace(/^.*[\\\/]/,'');
         const path = imageData.replace(/[^\/]*$/, '');
         const newFileName = new Date().getUTCMilliseconds() + '.jpg';
         this.file.moveFile(path, currentName, this.file.dataDirectory, newFileName)
         .then(
           data => {
-            this.imgUrl = data.nativeURL;
+            this.imgUrl = normalizeURL(data.nativeURL);
             console.log("image path", this.imgUrl);
             this.camera.cleanup();
             this.file.removeFile(path, currentName);
@@ -80,7 +83,7 @@ export class TransactionPage {
           }
         )
 
-        this.imgUrl = imageData;
+        this.imgUrl = normalizeURL(imageData);
       }
    )
 
