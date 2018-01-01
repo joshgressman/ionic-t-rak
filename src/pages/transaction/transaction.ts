@@ -55,7 +55,7 @@ export class TransactionPage {
    .then(
       imageData => {
         //save image data to be stored in native file
-        const currentName = imageData.raplace(/^.*[\\\/]/,'');
+        const currentName = imageData.replace(/^.*[\\\/]/,'');
         const path = imageData.replace(/[^\/]*$/, '');
         const newFileName = new Date().getUTCMilliseconds() + '.jpg';
         this.file.moveFile(path, currentName, this.file.dataDirectory, newFileName)
@@ -73,7 +73,7 @@ export class TransactionPage {
             this.imgUrl = '';
             const toast = this.toast.create({
               message: "Image Error could not save" + err,
-              duration: 5000
+              duration: 10000
             });
             toast.present();
             this.camera.cleanup();
@@ -88,7 +88,7 @@ export class TransactionPage {
      (err) => {
        const toastTake = this.toast.create({
          message: "Could not take image" + err,
-         duration: 5000
+         duration: 10000
        });
        toastTake.present();
      }
