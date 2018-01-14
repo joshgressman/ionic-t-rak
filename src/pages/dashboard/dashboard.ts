@@ -69,6 +69,8 @@ export class DashboardPage {
        }
        console.log("transaction array", this.filteredTransactions);
     }
+
+    this.showFilteredTransactions = true;
   }
 
 
