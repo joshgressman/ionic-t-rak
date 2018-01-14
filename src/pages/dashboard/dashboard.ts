@@ -61,6 +61,14 @@ export class DashboardPage {
   onSubmit(form: NgForm) {
     this.currentCategory = form.value.category;
     
+    //Iterate through transactions 
+    //push to filtered array where category value == this.currentCategory
+    for(var i = 0; i < this.transactions.length; i++) {
+       if(this.transactions[i].category == this.currentCategory){
+         this.filteredTransactions.push(this.transactions[i])
+       }
+       console.log("transaction array", this.filteredTransactions);
+    }
   }
 
 
