@@ -3,7 +3,7 @@ import { NavController, NavParams } from 'ionic-angular';
 import { TransactionsService } from '../../services/transactions';
 import { TransactionPage } from '../transaction/transaction';
 import { ViewTransactionPage } from '../view-transaction/view-transaction';
-
+import { NgForm } from '@angular/forms';
 import { Transaction } from '../../models/transaction';
 
 @Component({
@@ -12,9 +12,12 @@ import { Transaction } from '../../models/transaction';
 })
 export class DashboardPage {
   transactions: Transaction[] = [];
+  filteredTransactions: any[] = [];
+  itemCategory: any = [];
   total = 0;
   displayYear: number;
   showCategoryFilter: boolean = false;
+  showFilteredTransactions: boolean =  false
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService) {
    
    this.displayYear = new Date().getFullYear();
@@ -22,6 +25,7 @@ export class DashboardPage {
 
   ionViewDidLoad() {
    this.transactions = this.transactionsService.loadTransactions();
+   this.itemCategory = this.transactionsService.category;
    console.log("loaded transactions",this.transactions);
     
    if(this.transactions != []){
@@ -39,12 +43,20 @@ export class DashboardPage {
   }
 
   viewAllTransactions(){
-    this.transactions = this.transactionsService.loadTransactions();
-    console.log("Select all",this.transactions);
+   this.filteredTransactions = this.transactions;
+   this.showFilteredTransactions = true;
   }
 
   viewFilterCategory(){
     this.showCategoryFilter = true;
+  }
+
+  closeList(){
+    this.showFilteredTransactions = false;
+  }
+
+  onSubmit(form: NgForm) {
+
   }
 
 

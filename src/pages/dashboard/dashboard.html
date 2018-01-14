@@ -33,14 +33,27 @@
      </ion-row>
   </ion-grid>
   <button ion-button  block color="secondary" (click)="toTransactions()">Add Transaction</button>
+  <!-- Input section for category selection -->
   <ion-card *ngIf="showCategoryFilter">
-    <h1>Do some stuff here</h1>
+   <ion-grid>
+     <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+     <ion-row>
+       <ion-col col-8>
+        <ion-select name="category" ngModel>
+          <ion-option *ngFor="let cat of itemCategory" value="{{cat}}">{{cat}}</ion-option>
+        </ion-select></ion-col>
+       <ion-col col-4><button ion-button color="primary" small type="submit">Search</button></ion-col>
+     </ion-row>
+    </form>
+   </ion-grid>
   </ion-card>
-
-  <ion-card *ngFor="let trans of transactions, let i = index" (click)="onOpenTrans(trans)">
+  <div *ngIf="showFilteredTransactions">
+    <button ion-button small color="danger" (click)="closeList()">Close List</button>
+  <ion-card *ngFor="let trans of filteredTransactions, let i = index" (click)="onOpenTrans(trans)">
    <ion-card-header>{{trans.vendor}}</ion-card-header>
    <ion-card-content>{{trans.cost}}</ion-card-content>
    <img [src]="trans.imagePath"/>
    <p>Image {{trans.imagePath}}</p>
   </ion-card>
+  </div>
 </ion-content>
