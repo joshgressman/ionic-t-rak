@@ -18,6 +18,8 @@ export class DashboardPage {
   displayYear: number;
   showCategoryFilter: boolean = false;
   showFilteredTransactions: boolean =  false
+  currentCategory: string = "";
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService) {
    
    this.displayYear = new Date().getFullYear();
@@ -53,10 +55,12 @@ export class DashboardPage {
 
   closeList(){
     this.showFilteredTransactions = false;
+    this.filteredTransactions = [];
   }
 
   onSubmit(form: NgForm) {
-
+    this.currentCategory = form.value.category;
+    
   }
 
 
