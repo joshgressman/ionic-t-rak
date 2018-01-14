@@ -14,6 +14,7 @@ export class DashboardPage {
   transactions: Transaction[] = [];
   total = 0;
   displayYear: number;
+  showCategoryFilter: boolean = false;
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService) {
    
    this.displayYear = new Date().getFullYear();
@@ -40,6 +41,10 @@ export class DashboardPage {
   viewAllTransactions(){
     this.transactions = this.transactionsService.loadTransactions();
     console.log("Select all",this.transactions);
+  }
+
+  viewFilterCategory(){
+    this.showCategoryFilter = true;
   }
 
 

@@ -8,6 +8,8 @@ export class TransactionsService {
   //array that will store transaction objects within local storage
   private transactions: Transaction[] = [];
 
+  public category = ["Office Supplies", "Vehicle", "Gas", "Marketing"];
+
   constructor(private storage: Storage){}
 
   //The local storage is being overwritten, need to initialize then resave the array

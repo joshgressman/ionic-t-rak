@@ -20,7 +20,7 @@
       <button ion-button block outline (click)="viewAllTransactions()">View All</button>
     </ion-col>
     <ion-col> 
-        <button ion-button block outline>Filter Category</button>
+        <button ion-button block outline (click)="viewFilterCategory()">Filter Category</button>
       </ion-col>
    </ion-row>
    <ion-row>
@@ -33,6 +33,10 @@
      </ion-row>
   </ion-grid>
   <button ion-button  block color="secondary" (click)="toTransactions()">Add Transaction</button>
+  <ion-card *ngIf="showCategoryFilter">
+    <h1>Do some stuff here</h1>
+  </ion-card>
+
   <ion-card *ngFor="let trans of transactions, let i = index" (click)="onOpenTrans(trans)">
    <ion-card-header>{{trans.vendor}}</ion-card-header>
    <ion-card-content>{{trans.cost}}</ion-card-content>

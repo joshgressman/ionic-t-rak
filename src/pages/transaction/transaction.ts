@@ -42,7 +42,7 @@ export class TransactionPage {
   }
 
   ionViewDidLoad() {
-    this.itemCategory = ["Office Supplies", "Vehicle", "Gas", "Marketing"];
+    this.itemCategory = this.transactionsService.category;
   }
 
   //Will take receipt image. Will add after local storage to test without xcode
