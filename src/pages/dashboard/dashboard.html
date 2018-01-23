@@ -38,10 +38,11 @@
    <ion-grid *ngIf="showCategoryFilter">
      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
      <ion-row>
-       <ion-col col-8><ion-label>Category:</ion-label>
+       <ion-col col-8>
         <ion-select name="category" ngModel>
           <ion-option *ngFor="let cat of itemCategory" value="{{cat}}">{{cat}}</ion-option>
-        </ion-select></ion-col>
+        </ion-select>
+      </ion-col>
        <ion-col col-4><button ion-button color="primary" small type="submit">Search</button></ion-col>
      </ion-row>
     </form>
