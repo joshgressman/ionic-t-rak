@@ -19,6 +19,7 @@ export class DashboardPage {
   showCategoryFilter: boolean = false;
   showFilteredTransactions: boolean =  false
   currentCategory: string = "";
+  showCloseCategorySearch = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService) {
    
@@ -51,10 +52,12 @@ export class DashboardPage {
 
   viewFilterCategory(){
     this.showCategoryFilter = true;
+    this.showCloseCategorySearch = true;
   }
 
   closeList(){
     this.showFilteredTransactions = false;
+    this.showCategoryFilter = false;
     this.filteredTransactions = [];
   }
 
@@ -69,8 +72,12 @@ export class DashboardPage {
        }
        console.log("transaction array", this.filteredTransactions);
     }
-
+    this.showCloseCategorySearch = false;
     this.showFilteredTransactions = true;
+  }
+
+  closeCategorySelection(){
+    this.showCategoryFilter = false;
   }
 
 

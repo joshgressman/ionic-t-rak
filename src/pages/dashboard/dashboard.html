@@ -38,14 +38,15 @@
    <ion-grid *ngIf="showCategoryFilter">
      <form #f="ngForm" (ngSubmit)="onSubmit(f)">
      <ion-row>
-       <ion-col col-8>
+       <ion-col col-6>
         <ion-select name="category" ngModel>
           <ion-option *ngFor="let cat of itemCategory" value="{{cat}}">{{cat}}</ion-option>
         </ion-select>
       </ion-col>
-       <ion-col col-4><button ion-button color="primary" small type="submit">Search</button></ion-col>
+       <ion-col col-3><button ion-button color="primary" small type="submit">Search</button></ion-col>
      </ion-row>
     </form>
+    <button *ngIf="showCloseCategorySearch" ion-button color="danger" small (click)="closeCategorySelection()">Close Search</button>
    </ion-grid>
 
   <div *ngIf="showFilteredTransactions">
