@@ -9,8 +9,18 @@ export class TransactionsService {
   private transactions: Transaction[] = [];
 
   public category = ["Office Supplies", "Vehicle", "Gas", "Marketing"];
-
-  constructor(private storage: Storage){}
+  public yearFilterSelection: number[] = [];
+  constructor(private storage: Storage){
+     
+    //set current year
+    let data = new Date().getFullYear();
+    
+    //add dynamic year selection to the tax year drop down
+    for(let i = data -1; i <= data + 1; i++){
+      let number = i;
+      this.yearFilterSelection.push(number);
+    }
+  }
 
   //The local storage is being overwritten, need to initialize then resave the array
 

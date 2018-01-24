@@ -19,14 +19,7 @@ export class TransactionPage {
    viewImage = '';
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService, private camera: Camera, private file: File, public toast: ToastController) {
     
-    //set current year
-    let data = new Date().getFullYear();
-    
-    //add dynamic year selection to the tax year drop down
-    for(let i = data -1; i <= data + 1; i++){
-      let number = i;
-      this.yearSelection.push(number);
-    }
+    this.yearSelection = this.transactionsService.yearFilterSelection;
 
    
   }

@@ -20,10 +20,13 @@ export class DashboardPage {
   showFilteredTransactions: boolean =  false
   currentCategory: string = "";
   showCloseCategorySearch = false;
+  showYearFilter: boolean = false;
+  yearFilter : number[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService) {
    
    this.displayYear = new Date().getFullYear();
+   this.yearFilter = this.transactionsService.yearFilterSelection;
   }
 
   ionViewDidLoad() {
@@ -78,6 +81,17 @@ export class DashboardPage {
 
   closeCategorySelection(){
     this.showCategoryFilter = false;
+  }
+
+  //Show year filter section
+  filterByYear(){
+    // Open Year filter
+    this.showYearFilter = true
+  }
+
+  //Run filter section function
+  onFilterYear(form: NgForm){
+    console.log(form.value.yearFilter);
   }
 
 
