@@ -22,7 +22,9 @@ export class DashboardPage {
   showCloseCategorySearch = false;
   showYearFilter: boolean = false;
   yearFilter : number[] = [];
-
+  currentYear: number;
+  showYearFilteredTransactions: boolean = false
+  showCloseYearSearch = true;
   constructor(public navCtrl: NavController, public navParams: NavParams, private transactionsService: TransactionsService) {
    
    this.displayYear = new Date().getFullYear();
@@ -58,9 +60,20 @@ export class DashboardPage {
     this.showCloseCategorySearch = true;
   }
 
+  closeYearSelection(){
+    this.showYearFilteredTransactions = false; 
+    this.showYearFilter = false;
+    
+  }
+
   closeList(){
     this.showFilteredTransactions = false;
     this.showCategoryFilter = false;
+    this.filteredTransactions = [];
+  }
+
+  closeYearList(){
+    this.showYearFilteredTransactions = false;
     this.filteredTransactions = [];
   }
 
@@ -91,7 +104,16 @@ export class DashboardPage {
 
   //Run filter section function
   onFilterYear(form: NgForm){
+    this.showCloseYearSearch = false;
     console.log(form.value.yearFilter);
+    this.currentYear = form.value.yearFilter
+    for(var i = 0; i < this.transactions.length; i++){
+      if(this.transactions[i].year == this.currentYear){
+        this.filteredTransactions.push(this.transactions[i])
+      }
+      console.log(this.filteredTransactions)
+    }
+    this.showYearFilteredTransactions = true;
   }
 
 

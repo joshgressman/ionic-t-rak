@@ -62,8 +62,9 @@
          </ion-col>
        </ion-row>
      </form>
+     <button *ngIf="showCloseYearSearch" ion-button color="danger" small (click)="closeYearSelection()">Close Search</button>
    </ion-grid>
-
+  <!-- Filtered category section -->
   <div *ngIf="showFilteredTransactions">
     <button ion-button small color="danger" (click)="closeList()">Close List</button>
   <ion-card *ngFor="let trans of filteredTransactions, let i = index" (click)="onOpenTrans(trans)">
@@ -72,5 +73,15 @@
    <img [src]="trans.imagePath"/>
    <p>Image {{trans.imagePath}}</p>
   </ion-card>
+  </div>
+  <!-- Filtered year section -->
+  <div *ngIf="showYearFilteredTransactions">
+   <button ion-button small color="danger" (click)="closeYearList()">Close List</button>
+    <ion-card *ngFor="let trans of filteredTransactions, let i = index">
+      <ion-card-header>{{trans.vendor}}</ion-card-header>
+   <ion-card-content>{{trans.cost}}</ion-card-content>
+   <img [src]="trans.imagePath"/>
+   <p>Image {{trans.imagePath}}</p>
+    </ion-card>
   </div>
 </ion-content>
