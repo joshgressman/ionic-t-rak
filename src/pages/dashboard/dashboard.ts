@@ -75,6 +75,7 @@ export class DashboardPage {
   closeYearList(){
     this.showYearFilteredTransactions = false;
     this.filteredTransactions = [];
+    this.showYearFilter = false;
   }
 
   onSubmit(form: NgForm) {
